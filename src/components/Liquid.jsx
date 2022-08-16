@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import WaveSVG from "./wave.svg";
-
+import { ReactComponent as WaveSVG } from "../assets/wave.svg";
 import Fill from "./Fill";
 
 const waveFront = keyframes`
@@ -41,7 +40,8 @@ const Offset = styled(Fill)`
 const Liquid = ({ percent, bg, opacity, frontFill, backFill }) => {
   return (
     <Offset percent={percent} bg={bg} opacity={opacity}>
-      <Wave/>
+      <Wave className="front" frontFill={frontFill} />
+      <Wave className="back" backFill={backFill} />
     </Offset>
   );
 };
